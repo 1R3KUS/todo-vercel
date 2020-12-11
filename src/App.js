@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import './App.scss'
+import { TaskCreator, Tasks } from "./components";
 
 function App() {
+
+  const [tasks, setTasks] = useState([
+    { 
+      name: 'Сделать математику', 
+      completed: false
+    },
+    { 
+      name: 'Сходить на тренировку',  
+      completed: false
+    },
+  ])
+
+  const onRemoveTask = (index) => {
+    setTasks((prevTasks) => prevTasks.filter((_, curIdx) => index !== curIdx));
+  };
+
+  const onComplete = (index) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task, curIdx) =>
+        index === curIdx
+          ? {
+              ...task,
+              completed: !task.completed,
+            }
+          : task,
+      ),
+    );
+  };
+
+  function addTask(inputText)  {
+    inputText &&
+    setTasks((prev) => [
+      ...prev,
+      {
+        name:inputText,
+        completed: false
+      }
+    ])
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TaskCreator addTask={addTask}/>
+      <Tasks tasks={tasks} onRemoveTask={onRemoveTask} onComplete={onComplete}/>
     </div>
   );
 }

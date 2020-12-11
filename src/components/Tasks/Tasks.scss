@@ -1,0 +1,66 @@
+.task {
+  padding: 10px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+
+  &__complete-button {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: 1px solid rgb(81, 255, 0);
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    outline: none;
+
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        path {
+          fill: rgb(81, 255, 0);
+        }
+      }
+    }
+  }
+
+  &__text {
+    flex: 1;
+    font-weight: 400;
+  }
+
+  &__close-btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    i {
+      svg {
+        path {
+          opacity: 0.5;
+          transition: 0.2s ease-in-out;
+        }
+      }
+    }
+
+    &:hover {
+      i {
+        svg {
+          path {
+            opacity: 1;
+            fill: rgb(255, 0, 0);
+            transition: 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+}

@@ -1,0 +1,56 @@
+.header {
+  background: rgb(81, 255, 0);
+  padding: 20px;
+  margin-bottom: 10px;
+
+  &__title {
+    font-size: 22px;
+    color: #fff;
+  }
+}
+
+.task-creator {
+  padding: 10px 0px 10px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  input {
+    width: 87%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+
+  &__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    i {
+      svg {
+        path {
+          opacity: 0.5;
+          transition: 0.2s ease-in-out;
+        }
+      }
+    }
+
+    &:hover {
+      i {
+        svg {
+          path {
+            opacity: 1;
+            fill: rgb(81, 255, 0);
+            transition: 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
